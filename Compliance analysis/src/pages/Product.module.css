@@ -1,0 +1,380 @@
+.pageWrapper {
+    padding: 2.5rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+  }
+  
+  .light {
+    background: #f8fafc;
+    color: #1e293b;
+  }
+  
+  .dark {
+    background: #0f172a;
+    color: #f8fafc;
+  }
+  
+  .topHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+  
+  .topHeader h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+  }
+  
+  .topHeader p {
+    color: #64748b;
+    font-size: 1rem;
+  }
+  
+  .primaryBtn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+  
+  .primaryBtn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  }
+  
+  .tabNav {
+    display: flex;
+    gap: 2.5rem;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 2.5rem;
+  }
+  
+  :global(.dark) .tabNav {
+    border-color: #334155;
+  }
+  
+  .tabBtn {
+    padding: 1rem 0;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+  
+  .tabActive {
+    color: #3b82f6;
+  }
+  
+  .tabActive::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #3b82f6;
+  }
+  
+  .filterBar {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .searchBox {
+    flex-grow: 1;
+  }
+  
+  .searchBox input,
+  .filterBox select {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border-radius: 1rem;
+    border: 1.5px solid #e2e8f0;
+    background: white;
+    font-size: 0.95rem;
+    outline: none;
+  }
+  
+  :global(.dark) .searchBox input,
+  :global(.dark) .filterBox select {
+    background: #1e293b;
+    border-color: #334155;
+    color: white;
+  }
+  
+  .productGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .productCard {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  :global(.dark) .productCard {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  
+  .productCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    border-color: #3b82f6;
+  }
+  
+  .cardTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+  
+  .miniAvatar {
+    width: 40px;
+    height: 40px;
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+  }
+  
+  .dotBadge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    text-transform: capitalize;
+  }
+  
+  .statusCompliant { background: #dcfce7; color: #16a34a; }
+  .statusNonCompliant { background: #fee2e2; color: #dc2626; }
+  .statusReview { background: #eff6ff; color: #3b82f6; }
+  .statusDraft { background: #f1f5f9; color: #64748b; }
+  
+  .cardMain h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  
+  .cardOrgName {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .cardBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px dashed #e2e8f0;
+  }
+  
+  :global(.dark) .cardBottom { border-color: #334155; }
+  
+  .cardCode {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #3b82f6;
+  }
+  
+  .cardScore {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+  }
+  
+  .detailsView {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .backBtn {
+    background: none;
+    border: none;
+    color: #3b82f6;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+  
+  .detailsHeader {
+    background: white;
+    border-radius: 2rem;
+    padding: 2.5rem;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 2.5rem;
+  }
+  
+  :global(.dark) .detailsHeader {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  
+  .detailsMain {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .productAvatar {
+    width: 80px;
+    height: 80px;
+    background: #3b82f6;
+    color: white;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  
+  .titleRow {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .titleRow h1 {
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  
+  .statusBadge {
+    padding: 0.4rem 1.2rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  
+  .detailsGrid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2.5rem;
+  }
+  
+  @media (max-width: 900px) {
+    .detailsGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .infoCard, .scoreCard, .imageGallery {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 2rem;
+  }
+  
+  :global(.dark) .infoCard, :global(.dark) .scoreCard, :global(.dark) .imageGallery {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  
+  .infoCard h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: #3b82f6;
+  }
+  
+  .dataGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .dataRow {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  
+  :global(.dark) .dataRow { border-color: #334155; }
+  
+  .label {
+    font-weight: 600;
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+  
+  .tagGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .marketTag {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    padding: 0.2rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  
+  .scoreCircle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+  }
+  
+  .scoreValue {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #3b82f6;
+  }
+  
+  .scoreLabel {
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+  }
+  
+  .assetGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .assetGrid img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
