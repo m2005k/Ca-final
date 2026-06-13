@@ -27,6 +27,10 @@ app.use(express.json());
 app.use(cookieParser());
 
 //  routes
+app.get("/", (req, res) => {
+  res.json({ message: "Compliance Analysis API is running" });
+});
+
 app.use("/api/auth", authrouter);
 app.use("/api/organization", organizationRouter);
 app.use("/api/framework", frameworkRouter);
