@@ -9,7 +9,7 @@ const qdrantClient = new QdrantClient({
 });
 
 // Initialize Framework Collection
-const initFrameworkCollection = async () => {
+export const initFrameworkCollection = async () => {
   const collectionName = "frameworks";
   try {
     const res = await qdrantClient.getCollections();
@@ -35,15 +35,5 @@ const initFrameworkCollection = async () => {
     console.error(`❌ Error setting up Qdrant Collection '${collectionName}':`, err);
   }
 };
-
-// Test connection and initialize
-try {
-  const res = await qdrantClient.getCollections();
-  console.log("✅ Qdrant Database Connected:", res.collections.length, "collections found.");
-  // Create collection if it doesn't exist
-  await initFrameworkCollection();
-} catch (err) {
-  console.error("❌ Qdrant Database Connection Error:", err);
-}
 
 export default qdrantClient;
