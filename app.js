@@ -15,11 +15,20 @@ app.set("trust proxy", 1); // Trust first proxy for secure cookies on Vercel
 //  cors:
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:5174",
-      process.env.FRONTEND_URL
-    ].filter(Boolean),
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        "http://localhost:5173",
+        "http://localhost:5174",
+        process.env.FRONTEND_URL
+      ].filter(Boolean);
+
+      // Allow if origin is in the list, is localhost, or is any Vercel deployment
+      if (!origin || allowedOrigins.includes(origin) || origin.endsWith(".vercel.app")) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
   }),
