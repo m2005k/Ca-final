@@ -59,11 +59,13 @@ export const signin = async (req, res, next) => {
     //  token generation
     const token = await genToken(user._id, user.userName, user.role);
 
+    const isProd = process.env.NODE_ENV === "production";
+
     return res
       .cookie("token", token, {
         httpOnly: true,
-        sameSite: "strict",
-        secure: false,
+        sameSite: isProd ? "none" : "lax",
+        secure: isProd ? true : false,
         maxAge: 24 * 60 * 60 * 1000,
       })
       .status(200)
@@ -101,8 +103,12 @@ export const getuser = async (req, res) => {
 
 export const signout = async (req, res) => {
   try {
-    //  signout
-    res.clearCookie("token").status(200).json({
+    const isProd = process.env.NODE_ENV === "production";
+    res.clearCookie("token", {
+      httpOnly: true,
+      sameSite: isProd ? "none" : "lax",
+      secure: isProd ? true : false,
+    }).status(200).json({
       message: "Signout successfully",
     });
   } catch (err) {
